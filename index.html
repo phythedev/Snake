@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake</title>
+  <!-- p5.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Game Container -->
+    <div id="game-container"></div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Score Boxes -->
+      <div class="score-section">
+        <div class="score-box" id="score-box">
+          <h3>Score</h3>
+          <p id="score">0</p>
+        </div>
+        <div class="score-box" id="last-score-box">
+          <h3>Last Score</h3>
+          <p id="last-score">0</p>
+        </div>
+        <div class="score-box" id="highest-score-box">
+          <h3>High Score</h3>
+          <p id="highest-score">0</p>
+        </div>
+      </div>
+      
+      <!-- Instructions & Food Containers -->
+      <div class="instructions-box">
+        <div class="instructions-container">
+          <h3>Instructions:</h3>
+          <div class="desktop-rules">
+            <ol>
+              <li>Use WASD or arrow keys to move snake</li>
+              <li>Avoid hitting walls or yourself</li>
+            </ol>
+          </div>
+          <div class="mobile-rules">
+            <ol>
+              <li>Swipe to move snake</li>
+              <li>Avoid hitting walls or yourself</li>
+            </ol>
+          </div>
+        </div>
+        <div class="food-container">
+          <h3>Food Type:</h3>
+          <table class="food-table">
+            <tr>
+              <td>
+                <div class="food-label">
+                  <span class="color-block" style="background-color: #A94442;"></span>
+                  <span>Red Apple:</span>
+                </div>
+                <span class="food-points">10 pts</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="food-label">
+                  <span class="color-block" style="background-color: #BFA06B;"></span>
+                  <span>Golden Apple:</span>
+                </div>
+                <span class="food-points">30 pts</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Controls Section -->
+      <div class="control-section">
+        <div class="top-controls">
+          <div class="control-box">
+            <button id="start-btn">Start</button>
+          </div>
+          <div class="control-box">
+            <button id="pause-btn">Pause</button>
+          </div>
+          <div class="theme-box">
+            <button id="toggle-mode-btn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Custom JavaScript -->
+  <script src="js/config.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/food.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,306 @@
+/* Global Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  height: 100%;
+  font-family: monospace;
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
+/* Light/Dark Themes */
+body.dark-mode {
+  background-color: #181a1b;
+  color: #fff;
+}
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Game Container (600×600) */
+#game-container {
+  width: 600px;
+  height: 600px;
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  background-color: inherit;
+  order: 1;
+  overflow: hidden;
+  position: relative;
+  touch-action: none;
+  overscroll-behavior: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  display: block !important;
+  image-rendering: pixelated;
+  width: 600px !important;
+  height: 600px !important;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  height: 600px;
+  padding: 10px;
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  order: 2;
+}
+
+/* Uniform Heading Style */
+h3 { font-size: 1rem; font-weight: normal; margin: 0; }
+
+/* Score Boxes */
+.score-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.score-box {
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Instructions & Food Containers */
+.instructions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  min-height: 0;
+  overflow: auto;
+}
+
+.instructions-container,
+.food-container {
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+  flex: 0 1 auto;
+  min-height: 0;
+}
+
+.instructions-container ol {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.instructions-container li {
+  margin-bottom: 5px;
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+.food-table td {
+  font-size: 1rem;
+  padding: 3px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.color-block {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  flex-shrink: 0;
+}
+
+.food-label {
+  display: flex;
+  align-items: center;
+}
+
+/* Control section */
+.control-section {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.top-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 34px;
+  gap: 10px;
+}
+
+.control-box {
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 1rem;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-box {
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+  flex-shrink: 0;
+}
+
+.theme-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.control-box button,
+.theme-box button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Light Mode adjustments */
+body.light-mode .score-box,
+body.light-mode .control-box,
+body.light-mode .theme-box,
+body.light-mode .instructions-container,
+body.light-mode .food-container {
+  border: 2px solid #000;
+}
+
+/* Narrow mode (mobile) */
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    height: auto;
+  }
+  
+  .sidebar {
+    width: 98%;
+    max-width: 600px;
+    height: auto;
+    padding: 10px;
+    gap: 10px;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .score-section {
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+  }
+  
+  .score-box {
+    padding: 3px;
+    flex: 1;
+  }
+  
+  #game-container {
+    width: 98vw !important;
+    height: 98vw !important;
+    max-width: 600px;
+    max-height: 600px;
+    order: 2;
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .instructions-box { 
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+  }
+  
+  .instructions-container,
+  .food-container { 
+    width: 50%;
+    margin: 0;
+  }
+  
+  .control-section {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .game-controls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .right-controls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .top-controls {
+    gap: 10px;
+  }
+  
+  .sidebar, .sidebar * { 
+    font-size: 1rem !important; 
+    font-weight: normal !important; 
+  }
+} 
